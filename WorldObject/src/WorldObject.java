@@ -121,28 +121,32 @@ class NocturnalCow extends Cow{ //this Nocturnal Cow class from between 6pm to 6
 	}
 }
 class FlyingCow extends Cow { //this FlyingCow class extends Cow
-	while (time++){
-		Random r = new Random();
-		int b = r.nextInt();
-		if (cow == false){
-			Object cow = objectCoordinates [x+b][y+b]; //random integer shifts coordinate points
+	public void randomMove(){
+		while (time++){
+			Random r = new Random();
+			int b = r.nextInt();
+			if (cow == false){
+				Object cow = objectCoordinates [x+b][y+b]; //random integer shifts coordinate points
+			}
 		}
 	}
 }
 class Grass extends FarmObject{ //this Grass class extends FarmObject
 	private double grass;
-	while (time++){
-		grass++;
-		double q = 0.1*grass; 
-		if (Math.random() < q){ //Random number up to 1 is chosen, with a ratio, this program will determine if grass is eaten
-			Random r = new Random();
-			int b = r.nextInt();
-			if (cow == false){
-				grass--;
+	public void eatGrass(){
+		while (time++){
+			grass++;
+			double q = 0.1*grass; 
+			if (Math.random() < q){ //Random number up to 1 is chosen, with a ratio, this program will determine if grass is eaten
+				Random r = new Random();
+				int b = r.nextInt();
+				if (cow == false){
+					grass--;
+				}
 			}
-		}
-		else {
-			break;
+			else {
+				break;
+			}
 		}
 	}
     
@@ -150,11 +154,12 @@ class Grass extends FarmObject{ //this Grass class extends FarmObject
 class PoisonedGrass extends Grass { // this PoisonedGrass class extends Grass
 	private int poisonedGrass;
 	private int sickness; //level of sickness
-	while (time++){
-		poisonedGrass = poisonedGrass + 2;
+	public void sickness(){
+		while (time++){
+			poisonedGrass = poisonedGrass + 2;
+		}
+		if (poisonedGrass == cow) { //if there is a patch of poisoned grass where the cow is
+			sickness++;
+		}
 	}
-	if (poisonedGrass == cow) { //if there is a patch of poisoned grass where the cow is
-		sickness++;
-	}
-
 }
