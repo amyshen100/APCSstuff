@@ -75,12 +75,12 @@ class Behavior extends Cow{ //this Behavior class extends Farm
 
 		}
 	public void otherTime(){
-		doNothing;
+		doStuffForAnHour;
 	}
 	public void noGrass(){
 		if (!(cow == poisonedGrass || cow == grass)){ // if the cow is not on a patch of grass
 			while (time == time + 1){ //while it is within an hour, do nothing
-				doNothing();
+				doStuffForAnHour();
 			}
 		
 		}
